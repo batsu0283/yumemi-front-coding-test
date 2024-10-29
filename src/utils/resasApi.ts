@@ -1,3 +1,5 @@
+import { defaultHeaders } from "./constants";
+
 export type Prefecture = {
   prefCode: number;
   prefName: string;
@@ -22,10 +24,6 @@ export type PopulationCompositionPerYearAPIResponce = {
     data: PopulationData[];
   };
 };
-
-const defaultHeaders = {
-  "X-API-KEY": import.meta.env.VITE_RESAS_API_KEY as string,
-} as const;
 
 const execApi = async <T>(endpoint: string): Promise<T> => {
   const url = `https://opendata.resas-portal.go.jp/${endpoint}`;

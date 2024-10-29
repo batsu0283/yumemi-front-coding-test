@@ -11,25 +11,7 @@ import {
 import { usePopulationCategories } from "./hooks/usePopulationCategories";
 import { usePopulations } from "./hooks/usePopulations";
 import { usePrefectures } from "./hooks/usePrefectures";
-
-export const populationCategories = [
-  {
-    label: "総人口",
-    value: "total",
-  },
-  {
-    label: "年少人口",
-    value: "young",
-  },
-  {
-    label: "生産年齢人口",
-    value: "workingAge",
-  },
-  {
-    label: "老年人口",
-    value: "elderly",
-  },
-] as const;
+import { populationCategories } from "./utils/constants";
 
 export const App = () => {
   const { prefectures, isError } = usePrefectures();
