@@ -33,12 +33,12 @@ const defaultHeaders = {
 const updatePopulations = (
   prevTotalPopulations: PopulationGraphData[],
   totalData: YearlyPopulation[],
-  prefCode: number
+  prefCode: number,
 ): PopulationGraphData[] => {
   const newTotalPopulations = [...prevTotalPopulations];
   for (const { year, value } of totalData) {
     const existingEntry = newTotalPopulations.find(
-      (entry) => entry.year === year
+      (entry) => entry.year === year,
     );
     if (existingEntry) {
       existingEntry[prefCode] = value;
@@ -75,22 +75,22 @@ export const usePopulations = () => {
       total: updatePopulations(
         prevPopulations.total,
         data.result.data[0].data,
-        prefCode
+        prefCode,
       ),
       young: updatePopulations(
         prevPopulations.young,
         data.result.data[1].data,
-        prefCode
+        prefCode,
       ),
       workingAge: updatePopulations(
         prevPopulations.workingAge,
         data.result.data[2].data,
-        prefCode
+        prefCode,
       ),
       elderly: updatePopulations(
         prevPopulations.elderly,
         data.result.data[3].data,
-        prefCode
+        prefCode,
       ),
     }));
   };
