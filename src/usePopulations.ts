@@ -48,7 +48,24 @@ const updatePopulations = (
   }
   return newTotalPopulations;
 };
+
+const updateCheckedPrefectures = (
+  prevCheckedPrefectures: Set<number>,
+  prefCode: number,
+): Set<number> => {
+  const newCheckedPrefectures = new Set(prevCheckedPrefectures);
+  if (newCheckedPrefectures.has(prefCode)) {
+    newCheckedPrefectures.delete(prefCode);
+  } else {
+    newCheckedPrefectures.add(prefCode);
+  }
+  return newCheckedPrefectures;
+};
+
 export const usePopulations = () => {
+  const [checkedPrefectures, setCheckedPrefectures] = useState<Set<number>>(
+    new Set(),
+  );
   const [populations, setPopulations] = useState<Populations>({
     total: [],
     young: [],
@@ -59,6 +76,9 @@ export const usePopulations = () => {
   const handlePrefectureCheckBox = async (prefCode: number) => {
     const isAlreadyFetched = populations.total[0]?.[prefCode];
     if (isAlreadyFetched) {
+      setCheckedPrefectures((prevCheckedPrefectures) =>
+        updateCheckedPrefectures(prevCheckedPrefectures, prefCode),
+      );
       return;
     }
     const queryParams = new URLSearchParams({
@@ -93,7 +113,10 @@ export const usePopulations = () => {
         prefCode,
       ),
     }));
+    setCheckedPrefectures((prevCheckedPrefectures) =>
+      updateCheckedPrefectures(prevCheckedPrefectures, prefCode),
+    );
   };
 
-  return { populations, handlePrefectureCheckBox };
+  return { checkedPrefectures, populations, handlePrefectureCheckBox };
 };
