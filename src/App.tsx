@@ -32,12 +32,13 @@ export const populationCategories = [
 ] as const;
 
 export const App = () => {
-  const { prefectures } = usePrefectures();
+  const { prefectures, isError } = usePrefectures();
   const { checkedPrefectures, populations, handlePrefectureCheckBox } =
     usePopulations();
   const { selectedPopulationCategory, handlePopulationCategoryChange } =
     usePopulationCategories();
 
+  if (isError) return <div>都道府県情報の取得に失敗しました。</div>;
   return (
     <>
       <h1>都道府県一覧</h1>

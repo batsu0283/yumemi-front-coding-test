@@ -15,6 +15,7 @@ const defaultHeaders = {
 };
 export const usePrefectures = () => {
   const [prefectures, setPrefectures] = useState<Prefecture[]>([]);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     const fetchPrefectures = async () => {
@@ -23,11 +24,16 @@ export const usePrefectures = () => {
       const response = await fetch(url, {
         headers: defaultHeaders,
       });
+      if (!response.ok) {
+        console.error(`HTTP error! status: ${response.status} url: ${url}`);
+        setIsError(true);
+        return;
+      }
       const data: PrefectureAPIResponce = await response.json();
       setPrefectures(data.result);
     };
     fetchPrefectures();
   }, []);
 
-  return { prefectures };
+  return { prefectures, isError };
 };

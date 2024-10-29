@@ -89,6 +89,11 @@ export const usePopulations = () => {
     const response = await fetch(url, {
       headers: defaultHeaders,
     });
+    if (!response.ok) {
+      console.error(`HTTP error! status: ${response.status} url: ${url}`);
+      window.alert("データの取得に失敗しました");
+      return;
+    }
     const data: PopulationCompositionPerYearAPIResponce = await response.json();
 
     setPopulations((prevPopulations) => ({
