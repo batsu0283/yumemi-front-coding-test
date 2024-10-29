@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import type { PrefCode } from "../utils/constants";
 import { type YearlyPopulation, resasApi } from "../utils/resasApi";
 
 type Populations = {
@@ -7,15 +8,17 @@ type Populations = {
   workingAge: PopulationGraphData[];
   elderly: PopulationGraphData[];
 };
+
 type PopulationGraphData = {
   year: number;
-  [prefCode: string]: number;
+} & {
+  [K in PrefCode]?: number;
 };
 
 const updatePopulations = (
   prevTotalPopulations: PopulationGraphData[],
   totalData: YearlyPopulation[],
-  prefCode: number,
+  prefCode: PrefCode,
 ): PopulationGraphData[] => {
   const newTotalPopulations = [...prevTotalPopulations];
   for (const { year, value } of totalData) {
@@ -32,9 +35,9 @@ const updatePopulations = (
 };
 
 const updateCheckedPrefectures = (
-  prevCheckedPrefectures: Set<number>,
-  prefCode: number,
-): Set<number> => {
+  prevCheckedPrefectures: Set<PrefCode>,
+  prefCode: PrefCode,
+) => {
   const newCheckedPrefectures = new Set(prevCheckedPrefectures);
   if (newCheckedPrefectures.has(prefCode)) {
     newCheckedPrefectures.delete(prefCode);
@@ -45,7 +48,7 @@ const updateCheckedPrefectures = (
 };
 
 export const usePopulations = () => {
-  const [checkedPrefectures, setCheckedPrefectures] = useState<Set<number>>(
+  const [checkedPrefectures, setCheckedPrefectures] = useState<Set<PrefCode>>(
     new Set(),
   );
   const [populations, setPopulations] = useState<Populations>({
@@ -56,7 +59,7 @@ export const usePopulations = () => {
   });
 
   const handlePrefectureCheckBox = useCallback(
-    async (prefCode: number) => {
+    async (prefCode: PrefCode) => {
       const isAlreadyFetched = populations.total[0]?.[prefCode];
       if (isAlreadyFetched) {
         setCheckedPrefectures((prevCheckedPrefectures) =>

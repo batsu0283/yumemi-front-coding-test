@@ -1,7 +1,7 @@
-import { defaultHeaders } from "./constants";
+import { type PrefCode, defaultHeaders } from "./constants";
 
 export type Prefecture = {
-  prefCode: number;
+  prefCode: PrefCode;
   prefName: string;
 };
 

@@ -11,7 +11,7 @@ import {
 import { usePopulationCategories } from "./hooks/usePopulationCategories";
 import { usePopulations } from "./hooks/usePopulations";
 import { usePrefectures } from "./hooks/usePrefectures";
-import { populationCategories } from "./utils/constants";
+import { populationCategories, prefectureColors } from "./utils/constants";
 
 export const App = () => {
   const { prefectures, isError } = usePrefectures();
@@ -73,9 +73,9 @@ export const App = () => {
           {Array.from(checkedPrefectures).map((prefCode) => (
             <Line
               key={prefCode}
-              type="monotone"
-              dataKey={String(prefCode)}
-              stroke="#82ca9d"
+              type="linear"
+              dataKey={prefCode}
+              stroke={prefectureColors[prefCode]}
               name={
                 prefectures.find((pref) => pref.prefCode === prefCode)?.prefName
               }
