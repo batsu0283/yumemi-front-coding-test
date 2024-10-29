@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { populationCategories } from "./App";
+import { populationCategories } from "../App";
 
 type PopulationCategoriesValue = (typeof populationCategories)[number]["value"];
 

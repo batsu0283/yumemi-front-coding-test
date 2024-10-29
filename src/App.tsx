@@ -8,9 +8,9 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { usePopulationCategories } from "./usePopulationCategories";
-import { usePopulations } from "./usePopulations";
-import { usePrefectures } from "./usePrefectures";
+import { usePopulationCategories } from "./hooks/usePopulationCategories";
+import { usePopulations } from "./hooks/usePopulations";
+import { usePrefectures } from "./hooks/usePrefectures";
 
 export const populationCategories = [
   {
