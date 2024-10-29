@@ -1,22 +1,16 @@
-import { useState } from "react";
+import { usePrefectures } from "./usePrefectures";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const { prefectures } = usePrefectures();
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>都道府県一覧</h1>
+      <ul>
+        {prefectures.map((prefecture) => (
+          <li key={prefecture.prefCode}>{prefecture.prefName}</li>
+        ))}
+      </ul>
     </>
   );
 }
