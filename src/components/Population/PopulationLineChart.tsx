@@ -1,4 +1,3 @@
-import {} from "recharts";
 import { usePopulationCategories } from "../../hooks/usePopulationCategories";
 import type { Populations } from "../../hooks/usePopulations";
 import type { PrefCode } from "../../utils/constants";
