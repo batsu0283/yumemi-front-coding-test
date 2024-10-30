@@ -33,14 +33,9 @@ export const PopulationLineChart = ({
   checkedPrefectures,
 }: PopulationLineChartProps) => (
   <section className="mt-5 mb-10">
-    <label
-      htmlFor="data-select"
-      className="block text-gray-700 font-semibold mb-2"
-    >
+    <label className="block text-gray-700 mb-2">
       表示するデータを選択
-    </label>
     <select
-      id="data-select"
       value={selectedPopulationCategory}
       onChange={(e) => handlePopulationCategoryChange(e.target.value)}
       className="block w-full max-w-xs p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-cyan-500 focus:border-cyan-500"
@@ -51,17 +46,10 @@ export const PopulationLineChart = ({
         </option>
       ))}
     </select>
+    </label>
     <ResponsiveContainer width="100%" height={500}>
       <LineChart
-        data={
-          selectedPopulationCategory === "total"
-            ? populations.total
-            : selectedPopulationCategory === "young"
-              ? populations.young
-              : selectedPopulationCategory === "workingAge"
-                ? populations.workingAge
-                : populations.elderly
-        }
+        data={populations[selectedPopulationCategory]}
         margin={{ top: 5, right: 20, left: 30, bottom: 5 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
