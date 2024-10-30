@@ -72,28 +72,29 @@ export const usePopulations = () => {
         cityCode: "-", // 全市区町村
       });
       try {
-        const data = await resasApi.getPopulationCompositionPerYear(
+        const responce = await resasApi.getPopulationCompositionPerYear(
           queryParams.toString(),
         );
+        const data = responce.result.data;
         setPopulations((prevPopulations) => ({
           total: updatePopulations(
             prevPopulations.total,
-            data.result.data[0].data,
+            data[0] ? data[0].data : [],
             prefCode,
           ),
           young: updatePopulations(
             prevPopulations.young,
-            data.result.data[1].data,
+            data[1] ? data[1].data : [],
             prefCode,
           ),
           workingAge: updatePopulations(
             prevPopulations.workingAge,
-            data.result.data[2].data,
+            data[2] ? data[2].data : [],
             prefCode,
           ),
           elderly: updatePopulations(
             prevPopulations.elderly,
-            data.result.data[3].data,
+            data[3] ? data[3].data : [],
             prefCode,
           ),
         }));

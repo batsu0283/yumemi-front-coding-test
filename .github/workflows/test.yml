@@ -21,5 +21,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Run type-check
+        run: npm run type-check
+
+      - name: Run Linter (Biome)
+        run: npm run lint
+
       - name: Run tests
         run: npm run test:coverage
