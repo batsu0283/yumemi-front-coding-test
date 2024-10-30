@@ -70,6 +70,8 @@ export const prefectureColors = {
   46: "#E64D66", // 鹿児島県
   47: "#4DB380", // 沖縄県
 } as const;
-// 型を自動的に生成
+
 export type PrefectureColors = typeof prefectureColors;
 export type PrefCode = keyof PrefectureColors;
+export type PopulationCategoriesValue =
+  (typeof populationCategories)[number]["value"];

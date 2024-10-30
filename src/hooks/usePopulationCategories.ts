@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { populationCategories } from "../utils/constants";
-
-export type PopulationCategoriesValue =
-  (typeof populationCategories)[number]["value"];
+import {
+  type PopulationCategoriesValue,
+  populationCategories,
+} from "../utils/constants";
 
 const isPopulationCategory = (
   value: string,

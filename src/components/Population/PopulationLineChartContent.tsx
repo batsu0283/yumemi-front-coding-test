@@ -8,9 +8,12 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import type { PopulationCategoriesValue } from "../../hooks/usePopulationCategories";
 import type { Populations } from "../../hooks/usePopulations";
-import { type PrefCode, prefectureColors } from "../../utils/constants";
+import {
+  type PopulationCategoriesValue,
+  type PrefCode,
+  prefectureColors,
+} from "../../utils/constants";
 import type { Prefecture } from "../../utils/resasApi";
 
 type PopulationLineChartContentProps = {
