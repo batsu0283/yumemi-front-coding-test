@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer > Snapshot 1`] = `
+<div>
+  <footer
+    class="bg-gray-800 text-white p-4 mt-10 text-center"
+  >
+    <p>
+      タイトル
+    </p>
+  </footer>
+</div>
+`;
