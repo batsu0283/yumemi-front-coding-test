@@ -9,12 +9,13 @@ import { usePrefectures } from "./hooks/usePrefectures";
 
 export const App = () => {
   const { prefectures, isError } = usePrefectures();
-  const { checkedPrefectures, populations, handlePrefectureCheckBox } =
+  const { checkedPrefectures, populations, handlePrefectureCheckBoxChange } =
     usePopulations();
   const { selectedPopulationCategory, handlePopulationCategoryChange } =
     usePopulationCategories();
 
-  if (isError) return <div>都道府県情報の取得に失敗しました。</div>;
+  if (isError)
+    return <div>都道府県情報の取得に失敗しました。再度お試しください</div>;
   return (
     <>
       <Header title="ゆめみフロントエンドコーディングテスト" />
@@ -22,7 +23,7 @@ export const App = () => {
         <PrefectureCheckboxList
           prefectures={prefectures}
           checkedPrefectures={checkedPrefectures}
-          handlePrefectureCheckBox={handlePrefectureCheckBox}
+          handlePrefectureCheckBoxChange={handlePrefectureCheckBoxChange}
         />
         <PopulationLineChart
           prefectures={prefectures}

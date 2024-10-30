@@ -58,7 +58,7 @@ export const usePopulations = () => {
     elderly: [],
   });
 
-  const handlePrefectureCheckBox = useCallback(
+  const handlePrefectureCheckBoxChange = useCallback(
     async (prefCode: PrefCode) => {
       const isAlreadyFetched = populations.total[0]?.[prefCode];
       if (isAlreadyFetched) {
@@ -109,5 +109,5 @@ export const usePopulations = () => {
     [populations.total[0]],
   );
 
-  return { checkedPrefectures, populations, handlePrefectureCheckBox };
+  return { checkedPrefectures, populations, handlePrefectureCheckBoxChange };
 };

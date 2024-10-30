@@ -5,13 +5,13 @@ import { PrefectureCheckbox } from "./PrefectureCheckbox";
 type PrefectureCheckboxListProps = {
   prefectures: Prefecture[];
   checkedPrefectures: Set<PrefCode>;
-  handlePrefectureCheckBox: (prefCode: PrefCode) => void;
+  handlePrefectureCheckBoxChange: (prefCode: PrefCode) => void;
 };
 
 export const PrefectureCheckboxList = ({
   prefectures,
   checkedPrefectures,
-  handlePrefectureCheckBox,
+  handlePrefectureCheckBoxChange,
 }: PrefectureCheckboxListProps) => (
   <section>
     <h2 className="text-xl font-bold mb-4">都道府県人口</h2>
@@ -23,7 +23,7 @@ export const PrefectureCheckboxList = ({
           prefCode={prefecture.prefCode}
           prefName={prefecture.prefName}
           checked={checkedPrefectures.has(prefecture.prefCode)}
-          handlePrefectureCheckBox={handlePrefectureCheckBox}
+          handleCheckboxChange={handlePrefectureCheckBoxChange}
         />
       ))}
     </fieldset>

@@ -5,7 +5,7 @@ type PrefectureCheckboxProps = {
   prefCode: PrefCode;
   prefName: string;
   checked: boolean;
-  handlePrefectureCheckBox: (prefCode: PrefCode) => void;
+  handleCheckboxChange: (prefCode: PrefCode) => void;
 };
 
 export const PrefectureCheckbox = memo(
@@ -13,14 +13,14 @@ export const PrefectureCheckbox = memo(
     prefCode,
     prefName,
     checked,
-    handlePrefectureCheckBox,
+    handleCheckboxChange,
   }: PrefectureCheckboxProps) => (
     <label className="flex items-center gap-2 p-2 bg-gray-100 rounded-lg shadow-sm">
       <input
         type="checkbox"
         className="w-5 h-5 text-cyan-600 focus:ring-cyan-500"
         checked={checked}
-        onChange={() => handlePrefectureCheckBox(prefCode)}
+        onChange={() => handleCheckboxChange(prefCode)}
         aria-label={`都道府県 ${prefName} を選択`}
       />
       <span className="text-gray-700">{prefName}</span>
