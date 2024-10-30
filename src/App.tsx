@@ -33,7 +33,7 @@ export const App = () => {
           checkedPrefectures={checkedPrefectures}
         />
       </Main>
-      <Footer />
+      <Footer title="batsu0283"/>
     </>
   );
 };
