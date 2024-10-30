@@ -25,18 +25,20 @@ export type PopulationCompositionPerYearAPIResponce = {
   };
 };
 
-const execApi = async <T>(endpoint: string): Promise<T> => {
+const execApi = async <T extends { result?: unknown }>(
+  endpoint: string,
+): Promise<T> => {
   const url = `https://opendata.resas-portal.go.jp/${endpoint}`;
-
   const response = await fetch(url, {
     headers: defaultHeaders,
   });
-  if (!response.ok) {
+
+  const data: T = await response.json();
+  if (!response.ok || !data.result) {
     const message = `HTTP error! status: ${response.status} url: ${url}`;
     console.error(message);
     throw new Error(message);
   }
-  const data: T = await response.json();
   return data;
 };
 
