@@ -9,8 +9,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "biome check ./src",
-    "lint:fix": "biome check --write --unsafe ./src",
+    "lint": "biome ci ./src",
+    "lint:apply": "biome check --write --unsafe ./src",
+    "type-check": "tsc --noEmit --project tsconfig.app.json",
     "preview": "vite preview"
   },
   "dependencies": {
