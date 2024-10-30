@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 import type { PrefCode } from "../utils/constants";
 import { type YearlyPopulation, resasApi } from "../utils/resasApi";
 
-type Populations = {
+export type Populations = {
   total: PopulationGraphData[];
   young: PopulationGraphData[];
   workingAge: PopulationGraphData[];
