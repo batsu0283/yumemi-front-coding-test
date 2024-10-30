@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Header > Snapshot 1`] = `
+<div>
+  <header
+    class="bg-cyan-600 text-white p-4 mb-1 shadow-lg"
+  >
+    <h1
+      class="text-2xl font-bold"
+    >
+      ヘッダータイトル
+    </h1>
+  </header>
+</div>
+`;

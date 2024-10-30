@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Main > Snapshot 1`] = `
+<div>
+  <main
+    class="container mx-auto p-10"
+  >
+    <p>
+      子要素1
+    </p>
+    <p>
+      子要素2
+    </p>
+  </main>
+</div>
+`;
