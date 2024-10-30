@@ -1,35 +1,34 @@
-import { useState } from "react";
-import viteLogo from "/vite.svg";
-import reactLogo from "./assets/react.svg";
-import "./App.css";
+import { PrefecturePopulationChart } from "./components/Population/PopulationLineChart";
+import { PrefectureCheckboxList } from "./components/Prefecture/PrefectureCheckboxList";
+import { Footer } from "./components/layout/Footer";
+import { Header } from "./components/layout/Header";
+import { Main } from "./components/layout/Main";
+import { usePopulations } from "./hooks/usePopulations";
+import { usePrefectures } from "./hooks/usePrefectures";
 
-function App() {
-  const [count, setCount] = useState(0);
+export const App = () => {
+  const { prefectures, isError } = usePrefectures();
+  const { checkedPrefectures, populations, handlePrefectureCheckBoxChange } =
+    usePopulations();
 
+  if (isError)
+    return <div>都道府県情報の取得に失敗しました。再度お試しください</div>;
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Header title="ゆめみフロントエンドコーディングテスト" />
+      <Main>
+        <PrefectureCheckboxList
+          prefectures={prefectures}
+          checkedPrefectures={checkedPrefectures}
+          handlePrefectureCheckBoxChange={handlePrefectureCheckBoxChange}
+        />
+        <PrefecturePopulationChart
+          prefectures={prefectures}
+          populations={populations}
+          checkedPrefectures={checkedPrefectures}
+        />
+      </Main>
+      <Footer title="batsu0283" />
     </>
   );
-}
-
-export default App;
+};
