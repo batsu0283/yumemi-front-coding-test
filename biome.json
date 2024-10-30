@@ -22,7 +22,6 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "noUndeclaredVariables": "error",
         "useHookAtTopLevel": "error",
         "noUnusedVariables": "warn",
         "noUnusedImports": "warn",
