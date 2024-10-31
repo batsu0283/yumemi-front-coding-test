@@ -11,7 +11,7 @@ type PopulationLineChartProps = {
   checkedPrefectures: Set<PrefCode>;
 };
 
-export const PrefecturePopulationChart = ({
+export const PopulationChart = ({
   prefectures,
   populations,
   checkedPrefectures,
