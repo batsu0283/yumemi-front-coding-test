@@ -1,7 +1,17 @@
 import { describe, expect, it, vi } from "vitest";
-import { resasApi } from "./resasApi"; // 実際のファイルパスに合わせてください
+import { resasApi } from "./resasApi";
 
 describe("resasApi", () => {
+  const mockFetch = (data: unknown, status = 200) => {
+    const responseBody =
+      typeof data === "object" || Array.isArray(data)
+        ? JSON.stringify(data)
+        : "{}";
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(responseBody, { status }),
+    );
+  };
+
   afterEach(() => {
     vi.restoreAllMocks();
   });
@@ -15,9 +25,7 @@ describe("resasApi", () => {
       ],
     };
     it("fetchが正しく行えること", async () => {
-      vi.spyOn(globalThis, "fetch").mockResolvedValue(
-        new Response(JSON.stringify(mockResponse), { status: 200 }),
-      );
+      mockFetch(mockResponse);
 
       const response = await resasApi.getPrefectures();
       expect(response).toEqual(mockResponse);
@@ -30,11 +38,7 @@ describe("resasApi", () => {
     });
 
     it("APIがエラーだった場合に例外がthrowされること", async () => {
-      vi.spyOn(globalThis, "fetch").mockResolvedValue(
-        new Response("{}", {
-          status: 500,
-        }),
-      );
+      mockFetch({}, 500);
       await expect(resasApi.getPrefectures()).rejects.toThrow(
         "HTTP error! status: 500",
       );
@@ -59,10 +63,7 @@ describe("resasApi", () => {
           ],
         },
       };
-      vi.spyOn(globalThis, "fetch").mockResolvedValue(
-        new Response(JSON.stringify(mockResponse), { status: 200 }),
-      );
-
+      mockFetch(mockResponse);
       const response = await resasApi.getPopulationCompositionPerYear(
         queryParams.toString(),
       );
@@ -74,10 +75,7 @@ describe("resasApi", () => {
     });
 
     it("APIがエラーだった場合に例外がthrowされること", async () => {
-      vi.spyOn(globalThis, "fetch").mockResolvedValue(
-        new Response("{}", { status: 500 }),
-      );
-
+      mockFetch({}, 500);
       await expect(
         resasApi.getPopulationCompositionPerYear(queryParams.toString()),
       ).rejects.toThrow("HTTP error! status: 500");
