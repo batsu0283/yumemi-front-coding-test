@@ -24,6 +24,15 @@ jobs:
       - name: Set environment variables
         run: echo "VITE_RESAS_API_KEY=${{ secrets.VITE_RESAS_API_KEY }}" >> $GITHUB_ENV
 
+      - name: Run type-check
+        run: npm run type-check
+
+      - name: Run Linter (Biome)
+        run: npm run lint
+
+      - name: Run tests
+        run: npm run test:coverage
+
       - name: Build the project
         run: npm run build
 

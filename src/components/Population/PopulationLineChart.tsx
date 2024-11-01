@@ -1,4 +1,3 @@
-import {} from "recharts";
 import { usePopulationCategories } from "../../hooks/usePopulationCategories";
 import type { Populations } from "../../hooks/usePopulations";
 import type { PrefCode } from "../../utils/constants";
@@ -12,7 +11,7 @@ type PopulationLineChartProps = {
   checkedPrefectures: Set<PrefCode>;
 };
 
-export const PrefecturePopulationChart = ({
+export const PopulationChart = ({
   prefectures,
   populations,
   checkedPrefectures,

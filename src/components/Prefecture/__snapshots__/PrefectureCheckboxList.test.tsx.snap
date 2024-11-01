@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PrefectureCheckboxList > Snapshot 1`] = `
+<div>
+  <section>
+    <h2
+      class="text-xl font-bold mb-4"
+    >
+      都道府県人口
+    </h2>
+    <fieldset
+      class="grid gap-2 grid-cols-3 sm:grid-cols-4 md:grid-cols-5"
+    >
+      <legend
+        class="sr-only"
+      >
+        都道府県の選択
+      </legend>
+      <label
+        class="flex items-center gap-2 p-2 bg-gray-100 rounded-lg shadow-sm"
+      >
+        <input
+          aria-label="都道府県 北海道 を選択"
+          checked=""
+          class="w-5 h-5 text-cyan-600 focus:ring-cyan-500"
+          type="checkbox"
+        />
+        <span
+          class="text-gray-700"
+        >
+          北海道
+        </span>
+      </label>
+      <label
+        class="flex items-center gap-2 p-2 bg-gray-100 rounded-lg shadow-sm"
+      >
+        <input
+          aria-label="都道府県 青森県 を選択"
+          class="w-5 h-5 text-cyan-600 focus:ring-cyan-500"
+          type="checkbox"
+        />
+        <span
+          class="text-gray-700"
+        >
+          青森県
+        </span>
+      </label>
+      <label
+        class="flex items-center gap-2 p-2 bg-gray-100 rounded-lg shadow-sm"
+      >
+        <input
+          aria-label="都道府県 岩手県 を選択"
+          class="w-5 h-5 text-cyan-600 focus:ring-cyan-500"
+          type="checkbox"
+        />
+        <span
+          class="text-gray-700"
+        >
+          岩手県
+        </span>
+      </label>
+    </fieldset>
+  </section>
+</div>
+`;

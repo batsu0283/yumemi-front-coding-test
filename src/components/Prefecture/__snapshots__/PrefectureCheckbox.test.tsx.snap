@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PrefectureCheckbox > Snapshot 1`] = `
+<div>
+  <label
+    class="flex items-center gap-2 p-2 bg-gray-100 rounded-lg shadow-sm"
+  >
+    <input
+      aria-label="都道府県 北海道 を選択"
+      class="w-5 h-5 text-cyan-600 focus:ring-cyan-500"
+      type="checkbox"
+    />
+    <span
+      class="text-gray-700"
+    >
+      北海道
+    </span>
+  </label>
+</div>
+`;

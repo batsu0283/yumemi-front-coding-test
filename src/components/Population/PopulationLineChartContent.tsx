@@ -29,7 +29,11 @@ export const PopulationLineChartContent = ({
   checkedPrefectures,
   prefectures,
 }: PopulationLineChartContentProps) => (
-  <ResponsiveContainer width="100%" height={500}>
+  <ResponsiveContainer
+    width="100%"
+    height={500}
+    data-testid="recharts-container"
+  >
     <LineChart
       data={populations[selectedPopulationCategory]}
       margin={{ top: 5, right: 20, left: 30, bottom: 5 }}

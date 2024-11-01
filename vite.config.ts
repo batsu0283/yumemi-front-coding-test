@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react()],
   base: "/yumemi-front-coding-test/",
   test: {
-    include: ["src/**/*.test.{ts,tsx}", "src/**/*.spec.{ts,tsx}"], // テストファイルのみ対象
+    include: ["src/**/*.test.{ts,tsx}", "src/**/*.spec.{ts,tsx}"],
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/vitest.setup.ts",
@@ -17,6 +17,7 @@ export default defineConfig({
         "src/**/*.d.ts",
         "src/**/*.test.{ts,tsx}",
         "src/**/*.spec.{ts,tsx}",
+        "src/main.tsx",
       ],
 
       reporter: ["text", "json", "html"],

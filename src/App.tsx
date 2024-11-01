@@ -1,4 +1,4 @@
-import { PrefecturePopulationChart } from "./components/Population/PopulationLineChart";
+import { PopulationChart } from "./components/Population/PopulationLineChart";
 import { PrefectureCheckboxList } from "./components/Prefecture/PrefectureCheckboxList";
 import { Footer } from "./components/layout/Footer";
 import { Header } from "./components/layout/Header";
@@ -22,7 +22,7 @@ export const App = () => {
           checkedPrefectures={checkedPrefectures}
           handlePrefectureCheckBoxChange={handlePrefectureCheckBoxChange}
         />
-        <PrefecturePopulationChart
+        <PopulationChart
           prefectures={prefectures}
           populations={populations}
           checkedPrefectures={checkedPrefectures}

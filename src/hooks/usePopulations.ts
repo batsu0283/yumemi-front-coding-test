@@ -102,12 +102,11 @@ export const usePopulations = () => {
         window.alert("データの取得に失敗しました");
         return;
       }
-
       setCheckedPrefectures((prevCheckedPrefectures) =>
         updateCheckedPrefectures(prevCheckedPrefectures, prefCode),
       );
     },
-    [populations.total[0]],
+    [populations],
   );
 
   return { checkedPrefectures, populations, handlePrefectureCheckBoxChange };
