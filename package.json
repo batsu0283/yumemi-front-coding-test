@@ -1,8 +1,20 @@
 {
   "name": "yumemi-front-coding-test",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Yumemi Frontend Coding Test",
+  "homepage": "https://batsu0283.github.io/yumemi-front-coding-test/",
+  "license": "MIT",
+  "author": "batsu0283",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/batsu0283/yumemi-front-coding-test.git"
+  },
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

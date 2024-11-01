@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import type { Populations } from "../../hooks/usePopulations";
 import type {
   PopulationCategoriesValue,
@@ -74,7 +74,6 @@ describe("PopulationLineChartContent", () => {
     const rechartsContainer = container.querySelector(
       ".recharts-responsive-container",
     );
-    screen.debug();
     expect(rechartsContainer).toBeInTheDocument();
   });
 
